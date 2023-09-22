@@ -1,0 +1,22 @@
+[package]
+name = "e-ink-pi-dash"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+default = []
+simulator = ["dep:embedded-graphics-simulator"]
+[dependencies]
+embedded-graphics = "0.8"
+dotenvy = "0.15"
+
+embedded-graphics-simulator = { version = "0.5", optional = true}
+
+google-gmail1 = "5"
+serde = "1"
+serde_json = "1"
+
+shopify_api = "0.4"
+
