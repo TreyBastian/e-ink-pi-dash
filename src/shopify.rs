@@ -1,9 +1,11 @@
 use std::error::Error;
 
 pub struct Shopify {
-    api_key: String
+    api_key: String,
+    pub data: ShopifyData
 }
 
+#[derive(Default)]
 pub struct ShopifyData {
     pub today_sales: String,
     pub monthly_sales: String,
@@ -16,11 +18,12 @@ pub struct ShopifyData {
 
 impl Shopify {
     pub fn new(api_key: String) -> Self {
-        Self { api_key }
+        Self { api_key, data: ShopifyData::default() }
     }
 
-    pub fn get_new_data(self) -> Result<ShopifyData, Box<dyn Error>> {
-        todo!("Implement")
+    pub fn get_new_data(&mut self) -> Result<(), Box<dyn Error>> {
+        self.data = ShopifyData::default();
+        Ok(())
     }
 
 }
